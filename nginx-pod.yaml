@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      volumeMounts:
+        - name: html-root
+          mountPath: /usr/share/nginx/html
+      ports:
+        - containerPort: 80
+  volumes:
+    - name: html-root
+      configMap:
+        name: nginx-config
+        items:
+          - key: index
+
+
+
+
+
+
+
+
+
